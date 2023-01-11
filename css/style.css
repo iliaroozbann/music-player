@@ -127,16 +127,17 @@ body {
 
 .layout {
   position: absolute;
-  width: 25%;
+  width: 370px;
   background-color: #FFF;
   height: 85%;
   z-index: 10000 ;
-  top: 6%;
-  left: 36%;
+  top: 7%;
+  left: 38%;
   border-radius: 15px;
   outline: 5px solid #1B2735 ;
   outline-offset: -10px; ;
 }
+
 .heart{
   width: 40px;
   position: absolute;
@@ -334,5 +335,14 @@ input[type=range]{
   top: 30px;
   left: -70px;
   transform: rotate(180deg);
+}
+
+
+
+
+@media (max-width:800px){
+  .layout{
+    margin-left: -70px;
+  }
 }
 
