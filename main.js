@@ -1,4 +1,5 @@
 const r = true;
+const r2 = false
 const playbtn = document.querySelector(".playme");
 const playBtnChangestoPause = document.querySelector(".playlogo")
 const music = document.querySelector("#player")
@@ -26,10 +27,15 @@ const songsrc = ["./music/eternal_raijin_la_espada 128.mp3" , "./music/billie_ei
 
 
 playbtn.addEventListener("click" , togglePlay);
+prev.addEventListener("click", prevone) 
+next.addEventListener("click",nextone) 
+music.addEventListener("ended",onending) 
+
 function togglePlay() {
     isPlaying = !isPlaying;
     isPlaying ? pauseMusic() : playMusic();
  };
+
 
 
  const pauseMusic = () => {
@@ -63,7 +69,8 @@ const playMusic = () => {
    var i = 0 ;
 
   //1 
-      music.addEventListener("ended", () =>{
+      
+      function onending(){
         clearInterval(intervalId);
         
         rangePlaying.value = "0" ;
@@ -94,15 +101,27 @@ const playMusic = () => {
              rangePlaying.value = "0";
              playBtnChangestoPause.src = "./svgs/play-svgrepo-com.svg" ;
            }
+         
+           const pauseit = ()=>{
+            music.pause()
+            playBtnChangestoPause.src = "./svgs/play-svgrepo-com.svg" ;
+            if(intervalId != null) {
+            clearInterval(intervalId);
+            } 
+           }
+
         
+           
+      
           },1000)
-         })
+         }
 
 //1
 
 
 //2
-         next.addEventListener("click", () =>{
+         
+         function nextone(){
           clearInterval(intervalId);
           rangePlaying.value = "0" ;
           music.autoplay = true;
@@ -133,15 +152,33 @@ const playMusic = () => {
               rangePlaying.value = "0";
               playBtnChangestoPause.src = "./svgs/play-svgrepo-com.svg" ;
             }
+             if(pauseit){
+              const pauseit = () =>{
+                music.pause();
+                clearInterval(intervalId);  
+                if(r == false){
+                  clearInterval(intervalId)
+                }
+              }
+            }else{
+              if(r == false){
+                clearInterval(intervalId)
+              }
+              
+            }
+
+          
          
            },1000)
-           })
+        
+           }
 
 //2
 
 //3 
 
-prev.addEventListener("click", () =>{
+
+function prevone() {
   clearInterval(intervalId);
   rangePlaying.value = "0" ;
   music.autoplay = true;
@@ -157,23 +194,26 @@ prev.addEventListener("click", () =>{
       artistname.innerText = artists[i];  
       music.src = songsrc[i];
       pict.src = coverad[i];
-      
-       
-    
-  
-   intervalId = setInterval(()=>{
-    const duri = music.duration ;
-    let maxin = rangePlaying.max ;
-    rangePlaying.max = duri ;
-    const dur = +rangePlaying.value++;
-    if(rangePlaying.value == rangePlaying.max){
+     intervalId = setInterval(()=>{
+     const duri = music.duration ;
+     let maxin = rangePlaying.max ;
+     rangePlaying.max = duri ;
+     const dur = +rangePlaying.value++;
+     if(rangePlaying.value == rangePlaying.max){
       clearInterval(intervalId);
       rangePlaying.value = "0";
       playBtnChangestoPause.src = "./svgs/play-svgrepo-com.svg" ;
+     }
+     const pauseit = ()=>{
+      music.pause()
+      playBtnChangestoPause.src = "./svgs/play-svgrepo-com.svg" ;
+      if(intervalId != null) {
+      clearInterval(intervalId);
+      }
+     }
+   
+    },1000)
     }
- 
-   },1000)
-   })
 
      
 
