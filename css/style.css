@@ -130,9 +130,9 @@ body {
   position: absolute;
   width: 370px;
   background-color: #FFF;
-  height: 85%;
+  height: 90%;
   z-index: 10000 ;
-  top: 7%;
+  top: 5%;
   left: 38%;
   border-radius: 15px;
   outline: 5px solid #1B2735 ;
@@ -148,8 +148,9 @@ body {
 
 nav p {
   position: absolute;
+  width: 90%;
   top: 4%;
-  left: 35%;
+  left: 36%;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: larger;
 }
@@ -157,15 +158,15 @@ nav p {
 .cover{
   border: 2px solid #1B2735 ;
   border-radius: 50%;
-  width: 230px;
+  width: 60%;
   position: absolute;
   top: 110px;
-  left: 73px;
+  left: 20%;
   animation-name: coverspin;
   animation-duration: 10000ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear; 
-  
+  margin-top: -50px;
   
  }
 
@@ -213,8 +214,11 @@ audio{
 
 .panel{
   position: absolute;
-  top: 74%;
-  left: 38%;
+ width: 60%;
+ margin: 0 35%;
+ top: 500px;
+ 
+ 
 }
 .panel img{
   width: 39%;
@@ -233,6 +237,7 @@ input[type=range] {
   -webkit-appearance: none;
   margin: 10px 0;
   width: 100%;
+  margin-bottom: -20px;
 }
 input[type=range]:focus {
   outline: none;
@@ -357,7 +362,28 @@ input[type=range]{
 
 @media (max-width:800px){
   .layout{
-    margin-left: -70px;
+    left: 15%;
   }
+}
+
+
+@media(max-width:520px){
+  .layout{
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+  }
+  .text{
+    margin-top: 390px;
+  }
+  .artist-name{
+    left:39%;
+    top: 62%;
+    margin-top: 10px;
+    color: #1B2735;
+    opacity: 0.75;
+  }
+
 }
 
