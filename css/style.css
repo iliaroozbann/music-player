@@ -246,7 +246,7 @@ input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: 10px;
   cursor: pointer;
-  animate: 0.2s;
+  animation: 0.2s;
   box-shadow: 1px 1px 1px #000000;
   background: #1B2735;
   border-radius: 5px;
